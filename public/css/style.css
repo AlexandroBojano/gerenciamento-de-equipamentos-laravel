@@ -379,3 +379,109 @@ main h1 {
     padding-right: 20px;
     margin: 10px;
 }
+
+
+.login-page {
+    background-color: white;
+        width: 100%;
+        max-width: 400px;
+        padding: 30px;
+        border-radius: 12px;
+        box-sizing: border-box;
+       
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-page input {
+    width: 90%;
+    border: none;
+    outline: none;
+    height: 20px;
+  
+    
+}
+.input-icons {
+    width: 100%;
+       padding: 10px;
+       box-sizing: border-box;
+       outline: none;
+       border-radius: 8px;
+       box-shadow: 1px 1px 10px var(--text-primary);
+       border: none;
+       display: flex;
+       justify-content:start;
+       align-items: center;
+       
+       
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
+}
+
+.input-icons-passwqord {
+    display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      box-shadow: 1px 1px 10px var(--text-primary);
+}
+
+
+.login-page p {
+    text-align: center;
+    margin: 5px;
+}
+.register-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-button a{
+    width: 100%;
+        padding: 10px;
+        cursor: pointer;
+        background-color: red;
+        border: none;
+        text-align: center;
+        border-radius: 8px;
+}
+
+.button-login-page {
+    color: white;
+}
+.register-button a:hover {
+    background-color: darkred;
+}
+
+.login-page a {
+    color: white;
+}
+.login-page button {
+    width: 100%;
+        padding: 10px;
+        cursor: pointer;
+}
+.login-page-body {
+    
+    margin: 0;
+        min-height: 100vh;
+        background-color: #f5f6fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+}
+
