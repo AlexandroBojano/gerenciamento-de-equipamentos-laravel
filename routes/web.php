@@ -27,8 +27,8 @@ Route::middleware('auth')->group(function () {
     });
     Route::post('/logout', [AuthController::class, 'logout']);
     
-    Route::get('/dashboard/admin/users/list', [WebController::class, 'users']);
-    Route::get('/dashboard/admin/users/list/{id}', [WebController::class, 'userId']);
+    Route::get('/users', [WebController::class, 'users']);
+    Route::get('/users/{id}', [WebController::class, 'userId']);
     
     //Route::get('/add', [WebController::class, 'createUser']);
     
