@@ -31,7 +31,7 @@ class EquipmentController extends Controller
     {
         
     
-        return view('EquipamentsForm');
+        return view('equipamentsForm');
     }
 
     public function equipamentsList()
