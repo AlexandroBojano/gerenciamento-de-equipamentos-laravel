@@ -10,25 +10,27 @@
 </head>
 <body class="body">
 
-    
+
 
     <h1>Lista de Equipamentos</h1>
 
     <div class="show-create ">
         <div class="back-home">
-            <button> 
+            <button>
                 <a href="/dashboard">Voltar para Home</a>
-                
+
             </button>
 
-              <Button>Cadatrar Equipamento</Button>
+              <Button>
+                  <a href="/new">Cadatrar Equipamento</a>
+                  </Button>
         </div>
 
-        
-       
 
-        
-       
+
+
+
+
     </div>
 
     <table>
@@ -42,7 +44,7 @@
                 <th>Status</th>
                 <th>Mudar o Status</th>
                 <th>Gerenciar</th>
-                
+
             </tr>
         </thead>
 
@@ -55,40 +57,56 @@
               <td>{{$list->unit}}</td>
               <td>{{$list->patrimonio}}</td>
               <td>{{$list->glpi}}</td>
-              <td>{{$list->status}}</td>
+              <td>{{ str_replace('_', ' ', ucfirst($list->status)) }}</td>
               <td>
-                  <select name="status-menu" id="">
-                      <option value="recebido">Recebido</option>
-                       <option value="planejado">Planejado</option>
-                        <option value="pendente">Pendente</option>
-                         <option value="pronto">Pronto</option>
-                          <option value="aguardando_retirada">Aguardando a Retirada</option>
-                           <option value="retirado">Retirado</option>
-                  </select>
+
+                  <form action="/updateStatus/{{ $list->id }}" method="POST" >
+                      @csrf
+                         @method('PUT')
+                      <select name="status" id="">
+                          <option value="recebido">Recebido</option>
+                           <option value="planejado">Planejado</option>
+                            <option value="pendente">Pendente</option>
+                             <option value="pronto">Pronto</option>
+                              <option value="aguardando_retirada">Aguardando a Retirada</option>
+                               <option value="retirado">Retirado</option>
+                               <option value="inserviveis">Inservíveis</option>
+                      </select>
+                      <button type="submit">Salvar</button>
+
+
+                      </form>
+                  
+
+                  
               </td>
-              <td> 
-                  <button class="button-query">consultar</button>
-               <button class="button-edit">editra</button>
-                <button class="button-delete">remover</button>
+              <td>
+                  <button class="button-query"><a href="/list/{{ $list->id }}">consultar</a></button>
+               <button class="button-edit">
+                   <a href="/updateForm/{{ $list->id }}">Editar</a>
+               </button>
+                <button class="button-delete">
+                    <a href="/deleteForm/{{ $list->id }}">deletar</a>
+                </button>
               </td>
 
-             
+
           </tr>
 
 
           @endforeach
 
-          
+
         </tbody>
     </table>
 
 
-    
 
-    
-   
 
-    
-	
+
+
+
+
+
 </body>
 </html>
