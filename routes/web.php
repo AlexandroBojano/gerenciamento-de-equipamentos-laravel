@@ -32,10 +32,10 @@ Route::middleware('auth')->group(function () {
     
     //Route::get('/add', [WebController::class, 'createUser']);
     
-    Route::post('/dashboard/admin/equipamentos/add', [EquipmentController::class, 'equipamentsRegister']);
+    Route::post('/equipamentos/add', [EquipmentController::class, 'equipamentsRegister']);
     
-    Route::get('/dashboard/admin/equipamentos/lista', [EquipmentController::class, 'equipamentsList']);
-    Route::get('/dashboard/admin/equipamentos/novo', [EquipmentController::class, 'equipamentsForm']);
+    Route::get('/list', [EquipmentController::class, 'equipamentsList']);
+    Route::get('/new', [EquipmentController::class, 'equipamentsForm']);
     //Route::post('/equipaments/add', [EquipmentController::class, 'equipamentsRegister']);
     // 
      Route::get('/show', [EquipmentController::class, 'show']);
