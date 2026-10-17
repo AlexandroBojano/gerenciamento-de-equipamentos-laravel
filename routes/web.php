@@ -23,7 +23,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
 
         $user = Equipment::all();
-        return view('dashboard', compact('user'));
+
+        $total = Equipment::where('status', '!=', 'inserviveis')->count();
+           $pendentes = Equipment::where('status', 'pendente')->count();
+           $aguardando = Equipment::where('status', 'aguardando_retirada')->count();
+           $inserviveis = Equipment::where('status', 'inserviveis')->count();
+
+        return view('dashboard', compact('user', 'total','pendentes', 'aguardando','inserviveis'));
     });
     Route::post('/logout', [AuthController::class, 'logout']);
     
@@ -32,13 +38,19 @@ Route::middleware('auth')->group(function () {
     
     //Route::get('/add', [WebController::class, 'createUser']);
     
-    Route::post('/equipamentos/add', [EquipmentController::class, 'equipamentsRegister']);
+    Route::post('/add', [EquipmentController::class, 'equipamentsRegister']);
     
     Route::get('/list', [EquipmentController::class, 'equipamentsList']);
+     Route::get('/list/{id}', [EquipmentController::class, 'equipamentsQueryId']);
     Route::get('/new', [EquipmentController::class, 'equipamentsForm']);
     //Route::post('/equipaments/add', [EquipmentController::class, 'equipamentsRegister']);
     // 
      Route::get('/show', [EquipmentController::class, 'show']);
 
+     Route::get('/updateForm/{id}', [EquipmentController::class, 'updateForm']);
+     Route::get('/deleteForm/{id}', [EquipmentController::class, 'deleteForm']);
+
+     Route::put('/update/{id}', [EquipmentController::class, 'updateItem']);
+     Route::delete('/delete/{id}', [EquipmentController::class, 'deleteItem']);
     
 });
